@@ -1,0 +1,56 @@
+.page--login {
+	min-height: 100vh;
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	min-height: 100vh;
+	padding: 20px;
+	background-color: $color-cyan-1;
+
+	&__logo {
+		width: 180px;
+	}
+
+	&__tagline {
+		@include font-primary;
+		@include type((
+			font-size: 14px,
+			line-height: 18px,
+		));
+		text-align: center;
+		margin-top: 10px;
+
+		&-emoji {
+			font-size: 18px;
+			vertical-align: middle;
+		}
+	}
+
+	&__content {
+		width: 100%;
+		max-width: 600px;
+	}
+
+	&__form-footer {
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+		white-space: nowrap;
+		margin-top: 30px;
+
+		.input-block {
+			margin-top: 0;
+		}
+	}
+
+	button[type="submit"] {
+		margin-top: 45px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

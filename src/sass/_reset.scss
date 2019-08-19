@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	@include font-primary;
+	-webkit-font-smoothing: antialiased;
+	// color: $color-dark-gray-1;
+}
+
+:focus {
+	outline: 0;
+}
+
+a:link,
+a:visited,
+a:active {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+li {
+	list-style-type: none;
+}

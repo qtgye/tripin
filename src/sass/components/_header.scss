@@ -1,0 +1,345 @@
+$icons: (
+	barber,
+	tools,
+	gym,
+	imac,
+	mug,
+	shop,
+);
+
+
+/**
+ * HEADER STYLES
+ */
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	transition: transform .3s ease,
+							background-color .3s ease;
+	padding: $page-margin-mobile 0;
+	z-index: 9999999;
+
+	&--opaque {
+		// background-color: $color-white;
+	}
+
+	&--hidden {
+		transform: translateY(-100%);
+	}
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1330px;
+		width: calc(100% - #{$page-margin-mobile * 2});
+		margin-left: auto;
+		margin-right: auto;
+
+		@include from(medium) {
+			width: calc(100% - 120px);
+		}
+
+		@include from(large) {
+			width: calc(100% - 120px);
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+	 	@include from(xxxlarge) {
+	 		margin-left: percentage(536/2500);
+	 	}
+
+		> * {
+			z-index: 1000000;
+		}
+	}
+
+	&__brand {
+		display: block;
+		font-size: 0;
+	}
+
+	&__nav-toggle {
+		min-width: 25px;
+
+		&--small {
+			@include from(large) {
+				display: none;
+			}
+		}
+
+		&--large {
+			display: none;
+			
+			@include from(large) {
+				display: inline-block;
+			}
+		}
+	}
+
+	&__auth {
+		display: flex;
+
+		&__button {
+			&--large-only {
+				@include below(large) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * NAV STYLES
+ */
+
+
+.nav {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	right: 0;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	will-change: transform;
+	// background-color: $color-white;
+	z-index: 999999;
+	max-height: calc(100vh - 60px);
+	overflow: auto;
+	transform: translateY(-20px);
+	transition: visibility .3s ease,
+							opacity .3s ease,
+							transform .3s ease;
+
+	@include from(large) {
+		position: relative;
+		top: 0;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: none;
+		margin-left: 44px;
+		margin-right: auto;
+		background-color: transparent;
+		overflow: visible;
+	}
+
+	&__primary {
+		padding: 30px $page-margin-mobile;
+
+		@include from(large) {
+			padding: 10px $page-margin-mobile;
+		}
+
+		@include from(xxxlarge) {
+			padding: 10px 0;
+		}
+
+		&__item {
+			@include font-primary;
+			display: block;
+			// color: $color-dark-gray-1;
+			font-size: 18px;
+			line-height: 2.5;
+			letter-spacing: 1.29px;
+			cursor: pointer;
+			transition: color .3s ease;
+
+			@include from(large) {
+				display: inline-block;
+				font-size: 18px;
+
+				&:not(:first-child) {
+					margin-left: 20px;
+				}
+			}
+
+			// &:hover {
+				// color: $color-blue;
+
+			// 	.nav__secondary--large {
+			// 		opacity: 1;
+			// 		visibility: visible;
+			// 		pointer-events: auto;
+			// 		transform: translate(-50%, 0);
+			// 	}
+			// }
+
+			&--small-only {
+				@include from(large) {
+					display: none;
+				}
+			}
+
+			&--large-only {
+				@include below(large) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__secondary {
+		padding: 10px $page-margin-mobile 30px;
+		// background-color: $color-light-gray-1;
+
+		@include from(large) {
+			background-color: transparent;
+			padding: 10px 0;
+		}
+
+		&--small {
+			@include from(large) {
+				display: none;
+			}
+		}
+
+		&--large {
+			display: none;
+			position: absolute;
+			top: calc(100% - 10px);
+			left: 50%;
+			width: 100%;
+			// filter: drop-shadow(0 0 8px #{rgba($color-black, .1)});
+
+			@include from(large) {
+				display: block;
+				min-width: 500px;
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+				transform: translate(-50%, -10px);
+				transition: transform .3s ease,
+										opacity .3s ease,
+										visibility .3s ease;
+			}
+
+			// Dropdown caret
+			&::before {
+				content: '';
+				display: block;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%) rotate(45deg);
+				// background-color: $color-light-gray-1;
+			}
+		}
+
+		&__label {
+			@include font-primary;
+			font-size: 12px;
+			letter-spacing: .86px;
+			line-height: 3;
+			// color: $color-gray;
+
+			@include from(large) {
+				display: none;
+			}
+		}
+
+		&__items {
+			@include from(large) {
+				// background-color: $color-light-gray-1;
+				border-radius: 18px;
+				padding: 10px;
+			}
+		}
+
+		&__item {
+			@include font-primary;
+			position: relative;
+			display: block;
+			// color: $color-black;
+			font-size: 12px;
+			letter-spacing: 1px;
+			padding: 5px 0;
+
+			@include from(large) {
+				font-size: 24px;
+				padding: 0;
+			}
+
+			// Nav item icon
+			&::before {
+				content: '';
+				display: inline-block;
+				position: relative;
+				width: 1.2em;
+				height: 1.2em;
+				background-size: contain;
+				margin-right: 18px;
+				background-repeat: no-repeat;
+				background-position: center;
+				vertical-align: middle;
+			}
+
+			// Icon variants
+			@each $icon in $icons {
+				&--#{$icon}::before {
+					background-image: url(/images/#{$icon}.svg);
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * NAV TOGGLE SUPPORT ON TOUCH DEVICES
+ */
+body.touch {
+	.header--expanded {
+		@include below(large) {
+			// background-color: $color-white;
+		}
+
+		.header__nav-toggle {
+			img {
+				.header--expanded & {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		.nav {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: none;
+		}
+
+		.nav__secondary--large {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: translate(-50%, 0);
+		}
+	}
+}
+
+
+/**
+ * NAV HOVER SUPPORT ON NON-TOUCH DEVICES
+ */
+body:not(.touch) {
+	.nav__primary__item:hover {
+		// color: $color-blue;
+
+		.nav__secondary--large {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: translate(-50%, 0);
+		}
+	}
+}

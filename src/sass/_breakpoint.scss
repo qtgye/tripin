@@ -1,0 +1,42 @@
+$breakpoints: (
+	small: 320px,
+	medium: 768px,
+	large: 1024px,
+	xlarge: 1280px,
+	xxlarge: 1440px,
+	xxxlarge: 2500px,
+);
+
+
+/**
+ * FUNCTIONS
+ */
+
+@function breakpoint-exists($breakpoint-name) {
+	@return map-has-key($breakpoints, $breakpoint-name);
+}
+
+@function get-breakpoint($breakpoint-name) {
+	@if ( breakpoint-exists($breakpoint-name) ) {
+		@return map-get($breakpoints, $breakpoint-name);
+	}
+	@error "Breakpoint '#{$breakpoint-name}' does not exist!";
+}
+
+
+
+/**
+ * MIXINS
+ */
+
+@mixin from($breakpoint-name) {
+	@media screen and (min-width: get-breakpoint($breakpoint-name)) {
+		@content;
+	}
+}
+
+@mixin below($breakpoint-name) {
+	@media screen and (max-width: (get-breakpoint($breakpoint-name) - 1px)) {
+		@content;
+	}
+}

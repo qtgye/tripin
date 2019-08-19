@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "SF Pro Text Regular";
+  src: url("/assets/fonts/SFProText-Regular.woff") format("woff"),
+       url("/assets/fonts/SFProText-Regular.otf") format("otf");
+}
+
+
+/**
+ * MIXINS
+ */
+
+ @mixin font-primary {
+ 	font-family: "SF Pro Text Regular", sans-serif;
+ }

@@ -1,0 +1,8 @@
+node_modules
+package-lock.json
+
+# Unnecessary files from public
+public/styles/
+public/*.html
+public/*.zip
+*.zip
