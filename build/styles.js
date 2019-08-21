@@ -19,6 +19,7 @@ function compile() {
 		  data: SASS_CONTENT,
 		  outputStyle: 'compressed',
 		  includePaths: [SASS_ROOT],
+		  sourceMapEmbed: true,
 		});
 
 		// Write CSS
