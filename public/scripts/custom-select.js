@@ -16,6 +16,7 @@ class CustomSelect extends Component {
 		this.element.addEventListener('click', e => this.handleClick(e));
 
 		this.bindOptions();
+		this.bindBodyClick();
 	}
 
 	handleClick(e) {
@@ -50,6 +51,10 @@ class CustomSelect extends Component {
 				this.setSelected(option);
 			}
 		});
+	}
+
+	bindBodyClick() {
+		document.body.addEventListener('click', () => this.closeDropdown());
 	}
 
 	openDropdown() {

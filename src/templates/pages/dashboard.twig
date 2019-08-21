@@ -7,15 +7,6 @@
 {% set active_nav_name = 'home' %}
 
 {% block admin_contents %}
-	<div class="dashboard__header">
-		<h1 class="admin__heading">Home</h1>
-		{% include '@templates/components/custom-select.twig' with {
-			options: {
-				'7': '7 Days',
-				'30': '30 Days'
-			},
-			selected: '7'
-		} only %}
-	</div>
-	
-{% endblock %}
+	{% include '@templates/components/dashboard-header.twig' %}
+	{% include '@templates/components/dashboard-cards.twig' %}
+{% endblock %} {# Ends admin_contents block #}
