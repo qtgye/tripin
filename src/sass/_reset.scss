@@ -10,6 +10,14 @@ body {
 	// color: $color-dark-gray-1;
 }
 
+// Headings.
+@for $i from 1 through 6 {
+	h#{$i} {
+		@include font-primary;
+		font-weight: 400;
+	}
+}
+
 :focus {
 	outline: 0;
 }

@@ -1,0 +1,21 @@
+{% extends '@templates/layouts/admin.twig' %}
+
+{% block title %}Home{% endblock %}
+{% block body_class %}page--dashboard{% endblock %}
+
+{# Should be picked up by the parent template #}
+{% set active_nav_name = 'home' %}
+
+{% block admin_contents %}
+	<div class="dashboard__header">
+		<h1 class="admin__heading">Home</h1>
+		{% include '@templates/components/custom-select.twig' with {
+			options: {
+				'7': '7 Days',
+				'30': '30 Days'
+			},
+			selected: '7'
+		} only %}
+	</div>
+	
+{% endblock %}

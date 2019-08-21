@@ -9,5 +9,20 @@
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: stretch;
+		width: 100%;
+	}
+
+	&__contents {
+		flex-grow: 1;
+		padding: 45px 100px 100px 50px;
+	}
+
+	&__heading {
+		@include font-primary;
+		@include type((
+			font-size: 32px,
+			line-height: 18px,
+			letter-spacing: -1.5px,
+		));
 	}
 }

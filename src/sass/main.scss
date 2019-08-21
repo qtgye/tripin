@@ -11,6 +11,7 @@
 // COMPONENTS
 @import "components/buttons";
 @import "components/form";
+@import "components/custom-select";
 @import "components/admin-nav";
 
 // BLOCKS
@@ -22,3 +23,4 @@
 
 // PAGES
 @import "pages/login";
+@import "pages/dashboard";

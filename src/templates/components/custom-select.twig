@@ -1,0 +1,20 @@
+<div class="custom-select">
+	<div class="custom-select__selected">
+		{% if selected and (options[selected] is defined) %}
+			{{ options[selected] }}
+		{% else %}
+			Please select
+		{% endif %}
+	</div>
+	<span class="custom-select__caret">▼</span>
+	<div class="custom-select__dropdown">
+		{% if search %}
+			{# Select input here #}
+		{% endif %}
+		<ul class="custom-select__options">
+			{% for value in options|keys %}
+				<li class="custom-select__option{{ value == selected ? ' custom-select__option--selected' : '' }}" data-value="{{ value }}">{{ options[value] }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
