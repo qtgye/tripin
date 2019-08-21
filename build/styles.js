@@ -9,6 +9,8 @@ const SASS_ROOT = path.resolve(PROJECT_ROOT, 'src/sass');
 const MAIN_FILE = path.resolve(SASS_ROOT, 'main.scss');
 const OUTPUT_FILE = path.resolve(PROJECT_ROOT, 'public/styles/main.css');
 
+const development = process.argv.includes('-d') || process.argv.includes('--development') || process.argv.includes('--dev');
+
 function compile() {
 	try {
 		// Get content of main file
@@ -19,7 +21,7 @@ function compile() {
 		  data: SASS_CONTENT,
 		  outputStyle: 'compressed',
 		  includePaths: [SASS_ROOT],
-		  sourceMapEmbed: true,
+		  sourceMapEmbed: development,
 		});
 
 		// Write CSS
