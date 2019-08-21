@@ -1,10 +1,10 @@
 form {
 	& button,
 	& .button {
+		display: inline-block;
 		padding: 0 15px;
-		min-width: 200px;
-		height: 54px;
-		border-radius: 30px;
+		min-width: 127px;
+		height: 40px;
 	}
 }
 
@@ -35,24 +35,32 @@ form {
 
 	label {
 		@include font-primary;
+		@include type((
+			font-size: 14px,
+			line-height: 18px,
+		));
 		display: block;
-		font-size: 14px;
-		line-height: 31px;
-		letter-spacing: 1.17px;
-		// color: $color-gray;
+		margin-bottom: 4px;
+		color: $color-dark-gray-1;
 	}
 
 	& [type="text"],
 	& [type="email"],
 	& [type="password"] {
+		@include font-primary;
+		@include type((
+			font-size: 16px,
+			line-height: 20px,
+		));
 		display: block;
 		width: 100%;
 		padding: 0 20px;
 		height: 54px;
-		border-radius: 27px;
+		border-radius: 3px;
 		-webkit-appearance: none;
-		// border: 1px solid $color-light-gray-2;
-		font-size: 16px;
+		box-shadow: inset 0 1px 1px 0 rgba(16, 22, 26, 0.2), inset 0 0 0 1px rgba(16, 22, 26, 0.15);
+		border: 0;
+		padding: 10px;
 	}
 
 	input[type="checkbox"] {

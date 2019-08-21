@@ -10,14 +10,6 @@ $page-margin-mobile: 20px;
 
 .body {
 	flex-grow: 1;
-
-	>:first-child {
-		padding-top: 70px;
-
-		@include from(large) {
-			padding-top: 80px;
-		}
-	}
 }
 
 /**
