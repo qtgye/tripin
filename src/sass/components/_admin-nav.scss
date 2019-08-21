@@ -1,0 +1,28 @@
+.admin-nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 90px;
+	border-right: 1px solid rgba($color-gray-1, .11);
+
+	&__list {
+
+	}
+
+	&__item {
+		opacity: .2;
+
+		&:not(:first-child) {
+			margin-top: 50px;
+		}
+
+		&--active {
+			opacity: 1;
+		}
+	}
+
+	&__icon {
+		height: 20px;
+	}
+}

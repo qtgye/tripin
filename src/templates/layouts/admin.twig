@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="admin {% block body_class %}{% endblock %}">
+	<main class="admin__body">
+
+		{# active_nav_name should be set in the child template which extends this layout #}
+		{% include '@templates/components/admin-nav.twig' with { active_nav_name: active_nav_name } only %}
+
+		<div class="admin__contents">
+			{% block admin_contents %}{% endblock %}
+		</div>
+
+	</main> {# Ends .admin__body #}
+
+	<script type="module" src="/scripts/index.js"></script>
+</body>
+</html>
