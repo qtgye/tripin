@@ -1,0 +1,16 @@
+.create-trip-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__actions {
+		button {
+			min-width: 127px;
+			height: 40px;
+
+			&:not(:first-child) {
+				margin-left: 10px;
+			}
+		}
+	}
+}
