@@ -1,4 +1,5 @@
 import CustomSelect from './custom-select.js';
+import DashboardChart from './dashboard-chart.js';
 
 // Determine touch support
 if ( 'ontouchstart' in document ) {
@@ -6,3 +7,4 @@ if ( 'ontouchstart' in document ) {
 }
 
 CustomSelect.init();
+DashboardChart.init();

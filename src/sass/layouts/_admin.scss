@@ -15,6 +15,7 @@
 	&__contents {
 		flex-grow: 1;
 		padding: 45px 100px 100px 50px;
+		overflow: auto;
 	}
 
 	&__heading {

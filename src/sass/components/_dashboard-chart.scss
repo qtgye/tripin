@@ -1,0 +1,131 @@
+.dashboard-chart {
+	margin-top: 10px;
+	padding: 18px 18px 100px;
+	background-color: $color-white;
+	border-radius: 6px;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__title {
+		@include font-primary;
+		@include type((
+			font-size: 14px,
+			line-height: 18px,
+		));
+	}
+
+	&__tab {
+		display: inline-block;
+		@include font-primary;
+
+		&:not(:first-child) {
+			margin-left: 10px;
+		}
+
+		&:not(.dashboard-chart__tab--active) {
+			opacity: .3;
+			color: $color-dark-gray-1;
+		}
+
+		&--active {
+			@include font-primary-medium;
+			color: $color-cyan-2;
+		}
+	}
+
+	&__tab-control {
+		@include type((
+			font-size: 14px,
+			line-height: 18px,
+		));
+		font-family: inherit;
+		color: inherit;
+		font-weight: inherit;
+	}
+
+	&__chart {
+		margin-top: 50px;
+		padding-left: 50px;
+		padding-right: 50px;
+		overflow: visible !important;
+	}
+
+	&__tooltip {
+		padding: 15px 20px;
+		background-color: rgba($color-cyan-2, .89);
+		border-radius: 4px;
+
+		&::before {
+			content: '';
+			display: block;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-right: 5px solid rgba($color-cyan-2, .89);
+			position: absolute;
+			top: 30px;
+			left: -5px;
+		}
+
+		&-city {
+			@include font-primary-medium;
+			@include type((
+				font-size: 14px,
+				line-height: 17px,
+				letter-spacing: .3px,
+			));
+			color: $color-yellow;
+		}
+
+		&-details {
+			@include font-primary;
+			@include type((
+				font-size: 13px,
+				line-height: 19px,
+				letter-spacing: .28px,
+			));
+			margin-top: 7px;
+			margin-left: 10px;
+			color: $color-white;
+
+			strong {
+				@include font-primary-medium;
+			}
+		}
+	}
+
+	// Highcharts overrides
+	.highcharts-root {
+		#gradient-0 {
+			stop[offset="0"] {
+				stop-color: #706ECC;
+			}
+
+			stop[offset="1"] {
+				stop-color: rgba(179, 92, 210, 0);
+			}
+		}
+	}
+
+	.highcharts-container {
+		overflow: visible;
+	}
+
+	.highcharts-column-series {
+		.highcharts-point {
+			width: 10px;
+			fill: url(#gradient-0);
+		}
+	}
+
+	.highcharts-xaxis-labels {
+		margin-top: 20px;
+	}
+
+	.highcharts-tooltip-box,
+	.highcharts-credits {
+		display: none;
+	}
+}

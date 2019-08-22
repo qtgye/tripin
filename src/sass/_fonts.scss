@@ -4,6 +4,12 @@
        url("/fonts/SFProText-Regular.otf") format("otf");
 }
 
+@font-face {
+  font-family: "SF Pro Text Medium";
+  src: url("/fonts/SFProText-Medium.woff") format("woff"),
+       url("/fonts/SFProText-Medium.otf") format("otf");
+}
+
 
 /**
  * MIXINS
@@ -11,4 +17,10 @@
 
  @mixin font-primary {
  	font-family: "SF Pro Text Regular", sans-serif;
+ 	font-weight: 400;
+ }
+
+ @mixin font-primary-medium {
+ 	font-family: "SF Pro Text Medium", sans-serif;
+ 	font-weight: 500;
  }
