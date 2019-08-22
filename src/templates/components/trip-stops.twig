@@ -1,10 +1,12 @@
 {% set cards = [
 	{
+		position: 1,
 		heading: 'Burger Joint',
 		subheading: '35 Powell St, San Francisco, CA 94102, USA',
 		image: 'https://picsum.photos/300/200'
 	},
 	{
+		position: 2,
 		heading: 'Burger Joint',
 		subheading: '35 Powell St, San Francisco, CA 94102, USA',
 		image: 'https://picsum.photos/301/201'
@@ -25,7 +27,7 @@
 			<div class="trip-stops__aspect-ratio">
 				<img class="trip-stops__card-image" src="{{ card.image }}" alt="">
 				<div class="trip-stops__card-content">
-					<div class="trip-stops__card-number">{{ loop.index }}</div>
+					<div class="trip-stops__card-number">{{ card.position }}</div>
 					<button class="trip-stops__card-controls" type="button"></button>
 					<div class="trip-stops__card-tooltip">
 						<button class="trip-stops__card-tooltip__button" type="button" data-action="edit">Edit</button>
