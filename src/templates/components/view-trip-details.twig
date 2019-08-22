@@ -1,0 +1,42 @@
+{# MOCK DETAILS #}
+{% set details = [
+	{ label: 'Category', title: 'Food' },
+	{ label: 'Location', title: 'San Francisco, CA' },
+] %}
+
+{# MOCK CARDS #}
+{% set cards = [
+	{
+		label: 'Trips',
+		value: '1,203',
+		icon: '/images/globe.svg',
+	},
+	{
+		label: 'Views',
+		value: '5,230',
+		icon: '/images/eye.svg',
+	}
+] %}
+
+<div class="view-trip-details">
+	<div class="view-trip-details__primary">
+		<div class="view-trip-details__primary-column">
+			<h1 class="admin__heading">5 Cheap Dinner Spots</h1>
+			{% for detail in details %}
+				<div class="view-trip-details__detail-block">
+					<span class="view-trip-details__detail-label">{{ detail.label }}</span>
+					<p class="view-trip-details__detail-value">{{ detail.title }}</p>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="view-trip-details__primary-column">
+			{% for card in cards %}
+				<div class="view-trip-details__card">
+					<div class="view-trip-details__card-label">{{ card.label }}</div>
+					<div class="view-trip-details__card-value">{{ card.value }}</div>
+					<img src="{{ card.icon }}" alt="" class="view-trip-details__card-icon">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

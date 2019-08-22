@@ -9,6 +9,6 @@
 {% block admin_contents %}
 	<form class="create-trip" action="/" method="post">
 		{% include '@templates/components/view-trip-header.twig' %}
-		{# {% include '@templates/components/view-trip-content.twig' %} #}
+		{% include '@templates/components/view-trip-details.twig' %}
 	</form>
 {% endblock %} {# Ends admin_contents block #}
