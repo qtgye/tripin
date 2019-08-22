@@ -40,3 +40,9 @@ button,
 	background-color: $color-gray-2;
 	box-shadow: 0 1px 2px 0 rgba(16, 22, 26, 0.1), 0 0 0 1px rgba(16, 22, 26, 0.15), inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 1px 0 rgba(16, 22, 26, 0.1);
 }
+
+.button--green {
+	color: $color-white;
+	background-color: $color-green;
+	box-shadow: 0 1px 2px 0 rgba(16, 22, 26, 0.2), 0 0 0 1px #298844, inset 0 0 0 1px rgba(16, 22, 26, 0.4), inset 0 -1px 1px 0 rgba(16, 22, 26, 0.2);
+}

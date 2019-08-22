@@ -1,0 +1,45 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1000;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .3s, visibility .3s;
+
+	&--visible {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color-black, .8);
+		z-index: 1001;
+	}
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1002;
+		overflow: auto;
+	}
+
+	&__dialog {
+		min-width: 600px;
+		padding: 20px;
+		background-color: $color-white;
+		border-radius: 3px;
+		box-shadow: 0 8px 24px 0 rgba(16, 22, 26, 0.2), 0 2px 4px 0 rgba(16, 22, 26, 0.2), 0 0 0 1px rgba(16, 22, 26, 0.1);
+	}
+}

@@ -1,0 +1,77 @@
+.trip-stops-modal {
+	.trip-stops-modal__header {
+		display: flex;
+	}
+
+	.input-block {
+		margin-top: 0;
+
+		&--search {
+			input {
+				display: inline-block;
+				margin-right: -30px;
+				padding-right: 30px;
+			}
+		}
+
+		&--notes {
+			margin-top: 24px;
+		}
+
+		input {
+			height: 40px !important;
+		}
+	}
+
+	&__search-icon {
+		display: inline-block;
+		font-size: 0;
+		vertical-align: middle;
+	}
+
+	.input-block--position {
+		min-width: 76px;
+		width: 76px;
+		margin-left: 73px;
+		flex-shrink: 0;
+	}
+
+	.custom-select {
+		&__toggle {
+			min-width: 76px;
+		}
+	}
+
+	&__controls {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 30px;
+
+		.button {
+			@include type((
+				font-size: 14px,
+				line-height: 18px,
+			));
+			width: auto;
+			min-width: 60px;
+			height: 30px;
+			padding: 0 10px;
+
+			&:not(:first-child) {
+				margin-left: 10px;
+			}
+		}
+	}
+
+	&__update {
+		.trip-stops-modal:not(.trip-stops-modal--edit) & {
+			display: none;
+		}
+	}
+
+	&__add {
+		.trip-stops-modal--edit & {
+			display: none;
+		}
+	}
+}

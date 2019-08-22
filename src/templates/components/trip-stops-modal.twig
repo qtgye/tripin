@@ -1,0 +1,45 @@
+{% extends '@templates/components/modal.twig' %}
+
+{# Generate positions #}
+{% set positions = {} %}
+{% for number, key in range(1, 20) %}
+	{% set positions = positions|merge({ ("#{key}"): key }) %}
+{% endfor %}
+
+{% set modal_classes = 'trip-stops-modal' %}
+{% block modal_content %}
+	<div class="trip-stops-modal__content">
+
+		<div class="trip-stops-modal__header">
+			{# Stop name #}
+			<div class="input-block input-block--search">
+				<label for="stop-name">Search</label>
+				<input type="text" id="stop-name" name="stop-name">
+				<img src="/images/search.svg" alt="" class="trip-stops-modal__search-icon">
+			</div>
+
+			{# Stop position #}
+			<div class="input-block input-block--position">
+				<label for="stop-position">Position</label>
+				{% include '@templates/components/custom-select.twig' with {
+					options: positions,
+					selected: 0,
+					name: 'stop-position'
+				} only %}
+			</div>
+		</div>
+
+		{# Stop notes #}
+		<div class="input-block input-block--notes">
+			<label for="stop-notes">Notes</label>
+			<textarea name="stop-notes" id="stop-notes" cols="30" rows="10"></textarea>
+		</div>
+
+		<div class="trip-stops-modal__controls">
+			<button class="button button--white modal__dismiss" type="button">Cancel</button>
+			<button class="button button--green trip-stops-modal__update" type="button">Update</button>
+			<button class="button button--green trip-stops-modal__add" type="button">Add</button>
+		</div>
+
+	</div>
+{% endblock %}

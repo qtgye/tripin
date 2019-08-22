@@ -19,6 +19,9 @@ class CustomSelect extends Component {
 		this.search = this.element.querySelector('.custom-select__search');
 
 		this.selectedText = this.element.querySelector('.custom-select__selected');
+		
+		// Add reference to this instance from the element
+		this.element.CustomSelect = this;
 	}
 
 	init() {
@@ -79,6 +82,10 @@ class CustomSelect extends Component {
 		this.element.classList.remove('custom-select--expanded');
 	}
 
+	reset() {
+		this.setSelected(this.options[0]);
+	}
+
 	/**
 	 * Uses a given option element to show as selected
 	 * @param {HTMLElement} option
@@ -97,9 +104,21 @@ class CustomSelect extends Component {
 
 			// Update native select value.
 			this.nativeSelect.value = dataset.value;
+
+			this.value = dataset.value;
 		}
 
 		// Should emit event passing dataset.value
+	}
+
+	selectByValue(value) {
+		this.options.some(option => {
+			if ( value == option.dataset.value ) {
+				this.setSelected(option);
+				return true;
+			}
+			return false;
+		});
 	}
 }
 
