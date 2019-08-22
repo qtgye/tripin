@@ -1,0 +1,23 @@
+.view-trip-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.button {
+		display: inline-flex;
+	}
+
+	&__back {
+		display: inline-flex;
+		align-items: center;
+		color: rgba($color-dark-gray-1, .6);
+
+		&::before {
+			content: '<';
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 5px;
+			// background-image: url(/images/);
+		}
+	}
+}
