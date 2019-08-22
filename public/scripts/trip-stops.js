@@ -37,6 +37,7 @@ class TripStops extends Component {
 		this.initializeModal();
 		this.bindModalForm();
 		this.bindAddStop();
+		this.buildInitialCards();
 	}
 
 	initializeModal() {
@@ -46,6 +47,29 @@ class TripStops extends Component {
 
 	bindAddStop() {
 		this.addStop.addEventListener('click', e => this.handleAddStopClick(e));
+	}
+
+	buildInitialCards() {
+		const [...names] = this.element.querySelectorAll('meta[name="name"]');
+		const [...notes] = this.element.querySelectorAll('meta[name="notes"]');
+		const [...positions] = this.element.querySelectorAll('meta[name="position"]');
+
+		// Build out data from meta
+		names.forEach((name, index) => {
+			const data = {
+				name: name.content,
+				notes: notes[index].content,
+				position: positions[index].content,
+			};
+
+			// Add card.
+			this.addCard(data);
+
+			// Remove meta from DOM
+			this.element.removeChild(name);
+			this.element.removeChild(notes[index]);
+			this.element.removeChild(positions[index]);
+		});
 	}
 
 	bindModalForm() {

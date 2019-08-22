@@ -1,4 +1,13 @@
 <div class="trip-stops">
+
+	{% if stops is not empty %}
+		{% for stop in stops %}
+			<meta name="name" content="{{ stop.name }}">
+			<meta name="notes" content="{{ stop.notes }}">
+			<meta name="position" content="{{ stop.position }}">
+		{% endfor %}
+	{% endif %}
+
 	<div class="trip-stops__grid">
 		<div class="trip-stops__add">
 			<div class="trip-stops__aspect-ratio">

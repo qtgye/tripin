@@ -1,0 +1,35 @@
+{# MOCK STOPS #}
+{% set stops = [
+	{
+		name: 'Burger Joint',
+		notes: '35 Powell St, San Francisco, CA 94102, USA',
+		position: 1,
+	},
+	{
+		name: 'Burger Joint',
+		notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique deleniti, dolor minus! Consectetur, ipsam quisquam!',
+		position: 2,
+	},
+	{
+		name: 'Burger Joint',
+		notes: 'Lorem ipsum dolor sit amet.',
+		position: 3,
+	},
+	{
+		name: 'Burger Joint',
+		notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, rem.',
+		position: 4,
+	},
+	{
+		name: 'Burger Joint',
+		notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+		position: 5,
+	},
+] %}
+
+<div class="view-trip-stops">
+	<div class="input-block">
+		<label>Stops</label>
+		{% include '@templates/components/trip-stops.twig' with { stops: stops } %}
+	</div>
+</div>
