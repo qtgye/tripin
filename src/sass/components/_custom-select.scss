@@ -1,23 +1,33 @@
 .custom-select {
-	@include font-primary;
-	@include type((
-		font-size: 16px,
-		line-height: 20px,
-	));
-	display: inline-flex;
-	justify-content: space-between;
 	position: relative;
-	align-items: center;
-	padding: 10px 15px;
-	border-radius: 3px;
-	background-color: $color-gray-2;
-	cursor: pointer;
 	box-shadow: 0 1px 2px 0 rgba(16, 22, 26, 0.1), 0 0 0 1px rgba(16, 22, 26, 0.15), inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 1px 0 rgba(16, 22, 26, 0.1);
+	background-color: $color-gray-2;
+	border-radius: 3px;
+
+	&__toggle {
+		@include font-primary;
+		@include type((
+			font-size: 16px,
+			line-height: 20px,
+		));
+		display: inline-flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-flow: row nowrap;
+		position: relative;
+		width: 100%;
+		padding: 10px 15px;
+		cursor: pointer;
+	}
 
 	&__caret {
 		margin-left: 10px;
 		font-size: 10px;
 		color: $color-gray-3;
+
+		.custom-select--expanded & {
+			transform: rotate(180deg);
+		}
 	}
 
 	&__dropdown {
@@ -29,10 +39,16 @@
 		background-color: $color-white;
 		box-shadow: 0 8px 24px 0 rgba(16, 22, 26, 0.2), 0 2px 4px 0 rgba(16, 22, 26, 0.2), 0 0 0 1px rgba(16, 22, 26, 0.1);
 		border-radius: 3px;
+		z-index: 100;
 
 		.custom-select--expanded & {
 			display: block;
 		}
+	}
+
+	&__search {
+		width: calc(100% - 10px) !important;
+		margin: 5px;
 	}
 
 	&__option {
@@ -40,6 +56,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 10px 15px;
+		cursor: pointer;
 
 		&--selected {
 			&::after {

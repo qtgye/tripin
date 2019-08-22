@@ -1,0 +1,50 @@
+{% set categories = {
+	food: 'Food',
+	movie: 'Movie',
+	hotel: 'Hotel',
+} %}
+
+{% set locations = {
+	san_francisco: 'San Francisco, CA',
+	los_angeles: 'Los Angeles, CA',
+	new_york: 'New York, NY',
+	chicago: 'Chicago, IL',
+	brooklyn: 'Brooklyn, NY',
+} %}
+
+<div class="create-trip-form">
+
+	{# Trip name #}
+	<div class="input-block">
+		<label for="name">Name of this trip</label>
+		<input type="text" id="name" name="name">
+	</div>
+
+	{# Trip category #}
+	<div class="input-block">
+		<label for="category">Category</label>
+		{% include '@templates/components/custom-select.twig' with {
+			options: categories,
+			name: 'category',
+			selected: 'food',
+		} only %}
+	</div>
+	
+	{# Trip location #}
+	<div class="input-block">
+		<label for="location">Location</label>
+		{% include '@templates/components/custom-select.twig' with {
+			options: locations,
+			name: 'location',
+			placeholder: 'City',
+			search: true,
+		} only %}
+	</div>
+
+</div>
+
+{# Trip stops #}
+<div class="input-block">
+	<label>Stops</label>
+	{% include '@templates/components/trip-stops.twig' %}
+</div>

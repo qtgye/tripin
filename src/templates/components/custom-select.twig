@@ -1,15 +1,28 @@
 <div class="custom-select">
-	<div class="custom-select__selected">
-		{% if selected and (options[selected] is defined) %}
-			{{ options[selected] }}
-		{% else %}
-			Please select
-		{% endif %}
-	</div>
-	<span class="custom-select__caret">▼</span>
+
+	{# Native select #}
+	<select name="{{ name }}" id="{{ id is not empty ? id : name }}" hidden>
+		{% for value in options|keys %}
+			<option value="{{ value }}" {% if value == selected %}selected{% endif %} ></option>
+		{% endfor %}
+	</select>
+
+	{# Custom Select UI #}
+	<button type="button" class="custom-select__toggle">
+		<div class="custom-select__selected">
+			{% if selected and (options[selected] is defined) %}
+				{{ options[selected] }}
+			{% elseif placeholder is not empty %}
+				{{ placeholder }}
+			{% else %}
+				Please select
+			{% endif %}
+		</div>
+		<span class="custom-select__caret">▼</span>
+	</button>
 	<div class="custom-select__dropdown">
 		{% if search %}
-			{# Select input here #}
+			<input type="text" class="custom-select__search" placeholder="Search...">
 		{% endif %}
 		<ul class="custom-select__options">
 			{% for value in options|keys %}

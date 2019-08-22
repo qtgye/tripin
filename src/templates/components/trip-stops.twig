@@ -1,0 +1,40 @@
+{% set cards = [
+	{
+		heading: 'Burger Joint',
+		subheading: '35 Powell St, San Francisco, CA 94102, USA',
+		image: 'https://picsum.photos/300/200'
+	},
+	{
+		heading: 'Burger Joint',
+		subheading: '35 Powell St, San Francisco, CA 94102, USA',
+		image: 'https://picsum.photos/301/201'
+	},
+] %}
+
+<div class="trip-stops">
+	<div class="trip-stops__add">
+		<div class="trip-stops__aspect-ratio">
+			<button class="trip-stops__add-text" type="button">
+				Add Stop
+			</button>
+		</div>
+	</div>
+
+	{% for card in cards %}
+		<div class="trip-stops__card">
+			<div class="trip-stops__aspect-ratio">
+				<img class="trip-stops__card-image" src="{{ card.image }}" alt="">
+				<div class="trip-stops__card-content">
+					<div class="trip-stops__card-number">{{ loop.index }}</div>
+					<button class="trip-stops__card-controls" type="button"></button>
+					<div class="trip-stops__card-tooltip"></div>
+					<div class="trip-stops__card-headings">
+						<h3 class="trip-stops__card-heading">{{ card.heading }}</h3>
+						<p class="trip-stops__card-subheading">{{ card.subheading }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+</div>

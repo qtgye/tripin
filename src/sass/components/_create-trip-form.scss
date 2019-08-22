@@ -1,0 +1,13 @@
+.create-trip-form {
+	margin-top: 40px;
+	max-width: 300px;
+
+	.custom-select {
+		width: 100%;
+		height: 40px;
+	}
+
+	input[type="text"] {
+		height: 40px;
+	}
+}
