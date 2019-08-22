@@ -14,7 +14,7 @@
 	{
 		name: 'map',
 		title: 'Map',
-		url: '/map.html',
+		url: '/trips.html',
 		icon: '/images/pin.svg',
 	}
 ] %}
@@ -22,7 +22,7 @@
 <nav class="admin-nav">
 	<ul class="admin-nav__list">
 		{% for item in nav_items %}
-			<li class="admin-nav__item{{ item.name == active_nav_name ? ' admin-nav__link--active': '' }}">
+			<li class="admin-nav__item{{ item.name == active_nav_name ? ' admin-nav__item--active': '' }}">
 				<a href="{{ item.url }}" class="admin-nav__link">
 					<img class="admin-nav__icon" src="{{ item.icon }}" alt="">
 				</a>
