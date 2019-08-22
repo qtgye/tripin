@@ -30,6 +30,6 @@
 <div class="view-trip-stops">
 	<div class="input-block">
 		<label>Stops</label>
-		{% include '@templates/components/trip-stops.twig' with { stops: stops } only %}
+		{% include '@templates/components/trip-stops.twig' with { stops: stops, read_only: true } only %}
 	</div>
 </div>

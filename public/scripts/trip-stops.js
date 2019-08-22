@@ -46,7 +46,9 @@ class TripStops extends Component {
 	}
 
 	bindAddStop() {
-		this.addStop.addEventListener('click', e => this.handleAddStopClick(e));
+		if ( this.addStop ) {
+			this.addStop.addEventListener('click', e => this.handleAddStopClick(e));
+		}
 	}
 
 	buildInitialCards() {
@@ -169,14 +171,16 @@ class TripStops extends Component {
 		const cardHide = cardData.element.querySelector('[data-action="hide"]');
 		const cardDelete = cardData.element.querySelector('[data-action="delete"]');
 
-		cardControls.addEventListener('click', e => {
-			e.preventDefault();
-			cardData.element.classList.toggle('trip-stops__card--expanded');
-		});
+		if ( cardControls ) {
+			cardControls.addEventListener('click', e => {
+				e.preventDefault();
+				cardData.element.classList.toggle('trip-stops__card--expanded');
+			});
 
-		cardEdit.addEventListener('click', e => this.handleCardControl(e, cardData, 'edit'));
-		cardHide.addEventListener('click', e => this.handleCardControl(e, cardData, 'hide'));
-		cardDelete.addEventListener('click', e => this.handleCardControl(e, cardData, 'delete'));
+			cardEdit.addEventListener('click', e => this.handleCardControl(e, cardData, 'edit'));
+			cardHide.addEventListener('click', e => this.handleCardControl(e, cardData, 'hide'));
+			cardDelete.addEventListener('click', e => this.handleCardControl(e, cardData, 'delete'));
+		}
 	}
 
 	handleCardControl(e, cardData, action) {

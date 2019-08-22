@@ -9,13 +9,15 @@
 	{% endif %}
 
 	<div class="trip-stops__grid">
-		<div class="trip-stops__add">
-			<div class="trip-stops__aspect-ratio">
-				<button class="trip-stops__add-button" type="button">
-					Add Stop
-				</button>
+		{% if not read_only %}
+			<div class="trip-stops__add">
+				<div class="trip-stops__aspect-ratio">
+					<button class="trip-stops__add-button" type="button">
+						Add Stop
+					</button>
+				</div>
 			</div>
-		</div>
+		{% endif %}
 	</div>
 
 	<div class="trip-stops__card trip-stops__card-template" hidden>
@@ -23,12 +25,14 @@
 			<img class="trip-stops__card-image" src="https://picsum.photos/300/200" alt="">
 			<div class="trip-stops__card-content">
 				<div class="trip-stops__card-number"></div>
-				<button class="trip-stops__card-controls" type="button"></button>
-				<div class="trip-stops__card-tooltip">
-					<button class="trip-stops__card-tooltip__button" type="button" data-action="edit">Edit</button>
-					<button class="trip-stops__card-tooltip__button" type="button" data-action="hide">Hide</button>
-					<button class="trip-stops__card-tooltip__button" type="button" data-action="delete">Delete</button>
-				</div>
+				{% if not read_only %}
+					<button class="trip-stops__card-controls" type="button"></button>
+					<div class="trip-stops__card-tooltip">
+						<button class="trip-stops__card-tooltip__button" type="button" data-action="edit">Edit</button>
+						<button class="trip-stops__card-tooltip__button" type="button" data-action="hide">Hide</button>
+						<button class="trip-stops__card-tooltip__button" type="button" data-action="delete">Delete</button>
+					</div>
+				{% endif %}
 				<div class="trip-stops__card-headings">
 					<h3 class="trip-stops__card-heading"></h3>
 					<p class="trip-stops__card-subheading"></p>
