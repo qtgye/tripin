@@ -1,0 +1,38 @@
+{% extends '@templates/layouts/admin.twig' %}
+
+{% block title %}Edit Trip{% endblock %}
+{% block body_class %}page--create-trip{% endblock %}
+
+{# Should be picked up by the parent template #}
+{% set active_nav_name = 'map' %}
+
+{# MOCK TRIP #}
+{% set trip = {
+	name: '5 Cheap Dinner Spots',
+	category: 'food',
+	location: 'san_francisco',
+	stops: [
+		{
+			name: 'Burger Joint',
+			notes: '35 Powell St, San Francisco, CA 94102, USA',
+			position: 1,
+		},
+		{
+			name: 'Burger Joint',
+			notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique deleniti, dolor minus! Consectetur, ipsam quisquam!',
+			position: 2,
+		},
+		{
+			name: 'Burger Joint',
+			notes: 'Lorem ipsum dolor sit amet.',
+			position: 3,
+		},
+	]
+} %}
+
+{% block admin_contents %}
+	<form class="create-trip" action="/" method="post">
+		{% include '@templates/components/create-trip-header.twig' with { title: 'Edit ' ~ trip.name } only %}
+		{% include '@templates/components/create-trip-form.twig' with { trip: trip } only %}
+	</form>
+{% endblock %} {# Ends admin_contents block #}

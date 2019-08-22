@@ -17,7 +17,7 @@
 	{# Trip name #}
 	<div class="input-block">
 		<label for="name">Name of this trip</label>
-		<input type="text" id="name" name="name">
+		<input type="text" id="name" name="name" value="{{ (trip is not empty) ? trip.name : '' }}">
 	</div>
 
 	{# Trip category #}
@@ -26,7 +26,7 @@
 		{% include '@templates/components/custom-select.twig' with {
 			options: categories,
 			name: 'category',
-			selected: 'food',
+			selected: (trip is not empty) ? trip.category : 'food',
 		} only %}
 	</div>
 	
@@ -38,6 +38,7 @@
 			name: 'location',
 			placeholder: 'City',
 			search: true,
+			selected: (trip is not empty) ? trip.location : '',
 		} only %}
 	</div>
 
@@ -46,5 +47,5 @@
 {# Trip stops #}
 <div class="input-block">
 	<label>Stops</label>
-	{% include '@templates/components/trip-stops.twig' %}
+	{% include '@templates/components/trip-stops.twig' with { stops: (trip is not empty) ? trip.stops : [] } only %}
 </div>

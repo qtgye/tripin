@@ -8,7 +8,7 @@
 
 {% block admin_contents %}
 	<form class="create-trip" action="/" method="post">
-		{% include '@templates/components/create-trip-header.twig' %}
+		{% include '@templates/components/create-trip-header.twig' with { title: 'Create' } only %}
 		{% include '@templates/components/create-trip-form.twig' %}
 	</form>
 {% endblock %} {# Ends admin_contents block #}
