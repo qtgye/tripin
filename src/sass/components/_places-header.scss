@@ -1,0 +1,19 @@
+.places-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__actions {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.custom-select {
+			width: 200px;
+		}
+
+		.button {
+			margin-left: 8px;
+		}
+	}
+}

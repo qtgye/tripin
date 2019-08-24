@@ -1,0 +1,14 @@
+<div class="places-header">
+	<h1 class="admin__heading">TRIPin Places</h1>
+	<div class="places-header__actions">
+		{% include '@templates/components/custom-select.twig' with {
+			options: {
+				country: 'Country',
+				state: 'State',
+				city: 'City',
+			},
+			selected: 'country',
+		} only %}
+		<a href="/create-trip.html" class="button button--cyan">Add</a>
+	</div>
+</div>
