@@ -1,0 +1,81 @@
+$border-color: rgba(#10161A, .15);
+
+.places-list {
+	margin-top: 35px;
+	border-collapse: collapse;
+	table-layout: auto;
+	width: 100%;
+
+	th {
+		@include font-primary-medium;
+		@include type((
+			font-size: 14px,
+			line-height: 18px,
+		));
+		text-align: left;
+		padding: 10px 25px;
+
+		&:not(:last-child) {
+			border-left: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+		}
+
+		&:first-child {
+			border-left: 0;
+		}
+	}
+
+	tr {
+		&:nth-child(odd) {
+			td:not(:last-child) {
+				background-color: rgba(#BFCCD6, .2);
+			}
+		}
+	}
+
+	td {
+		@include font-primary;
+		@include type((
+			font-size: 14px,
+			line-height: 18px,
+		));
+		padding: 12px 25px;
+		border-right: 1px solid $border-color;
+		color: $color-dark-gray-1;
+
+		&:last-child,
+		&:nth-last-child(2) {
+			border-right: 0;
+		}
+
+		&:last-child {
+			width: 40px;
+		}
+	}
+
+	&__gear {
+		display: block;
+		width: 18px;
+		height: 18px;
+		background-image: url(/images/gear.svg);
+	}
+
+	&__name-header {
+		color: $color-blue-1;
+		cursor: pointer;
+
+		&::after {
+			content: '▼';
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 10px;
+			font-size: 10px;
+		}
+
+		&--ascending {
+			&::after {
+				content: '▲';
+			}
+		}
+	}
+}

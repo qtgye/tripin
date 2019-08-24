@@ -1,0 +1,54 @@
+{# MOCK PLACES #}
+{% set places = [
+	{
+		name: 'Top 20 Bars in NYC',
+		city: 'New York City, NY',
+		date_created: 'Aug 5, 2019',
+		stops: 20,
+		trips: 200,
+		url: '/view-trip.html',
+	},
+	{
+		name: '10 Best Pizza Joint',
+		city: 'Chicago, IL',
+		date_created: 'Mar 20, 2019',
+		stops: 10,
+		trips: 200,
+		url: '/view-trip.html',
+	},
+	{
+		name: '5 Cheap Dinner Spots',
+		city: 'Los Angeles, CA',
+		date_created: 'Feb 8, 2019',
+		stops: 5,
+		trips: 400,
+		url: '/view-trip.html',
+	}
+] %}
+
+<table class="places-list">
+	<thead>
+		<tr>
+			<th class="places-list__name-header">Name</th>
+			<th>City</th>
+			<th>Date Created</th>
+			<th>Stops</th>
+			<th>Trips</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody class="places-list__body">
+		{% for place in places %}
+			<tr class="places-list__item">
+				<td>{{ place.name }}</td>
+				<td>{{ place.city }}</td>
+				<td>{{ place.date_created }}</td>
+				<td>{{ place.stops }}</td>
+				<td>{{ place.trips }}</td>
+				<td>
+					<a class="places-list__gear" href="{{ place.url }}"></a>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
