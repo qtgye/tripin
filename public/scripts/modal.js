@@ -1,6 +1,4 @@
 class Modal {
-	static selector = '.modal';
-
 	constructor(element) {
 		this.element = element;
 		this.overlay = this.element.querySelector('.modal__overlay');
@@ -52,5 +50,7 @@ class Modal {
 		this.element.classList.add('modal--visible');
 	}
 }
+
+Modal.selector = '.modal';
 
 export default Modal;

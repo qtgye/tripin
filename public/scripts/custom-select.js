@@ -1,10 +1,6 @@
 import Component from './component.js';
 
 class CustomSelect extends Component {
-	static selector = '.custom-select';
-
-	// Holds the currently selected option element.
-	selectedOption;
 
 	constructor(element) {
 		super(element);
@@ -19,7 +15,7 @@ class CustomSelect extends Component {
 		this.search = this.element.querySelector('.custom-select__search');
 
 		this.selectedText = this.element.querySelector('.custom-select__selected');
-		
+
 		// Add reference to this instance from the element
 		this.element.CustomSelect = this;
 	}
@@ -121,5 +117,7 @@ class CustomSelect extends Component {
 		});
 	}
 }
+
+CustomSelect.selector = '.custom-select';
 
 export default CustomSelect;

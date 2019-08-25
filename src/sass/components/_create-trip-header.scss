@@ -4,6 +4,8 @@
 	align-items: center;
 
 	&__actions {
+		display: flex;
+
 		button {
 			min-width: 127px;
 			height: 40px;

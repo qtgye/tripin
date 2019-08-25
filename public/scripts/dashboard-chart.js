@@ -1,8 +1,6 @@
 import Component from './component.js';
 
 class DashboardChart extends Component {
-	static selector = '.dashboard-chart';
-
 	constructor(element) {
 		super(element);
 
@@ -135,5 +133,7 @@ class DashboardChart extends Component {
 		});
 	}
 }
+
+DashboardChart.selector = '.dashboard-chart';
 
 export default DashboardChart;

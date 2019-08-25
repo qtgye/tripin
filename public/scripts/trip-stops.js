@@ -2,19 +2,17 @@ import Component from './component.js';
 import Modal from './modal.js';
 
 class TripStops extends Component {
-	static selector = '.trip-stops';
-
-	// Should be false when adding
-	editMode = false;
-
-	// Should store current card data being editted in the form
-	selectedCard;
-
-	// Should store cardData, regardless of positions
-	cards = [];
-
 	constructor(element) {
 	  super(element);
+
+	  // Should be false when adding
+		this.editMode = false;
+
+		// Should store current card data being editted in the form
+		this.selectedCard = null;
+
+		// Should store cardData, regardless of positions
+		this.cards = [];
 
 		// Grid elements
 	  this.addStop = this.element.querySelector('.trip-stops__add-button');
@@ -231,5 +229,7 @@ class TripStops extends Component {
 		});
 	}
 }
+
+TripStops.selector = '.trip-stops';
 
 export default TripStops;

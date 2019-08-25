@@ -1,14 +1,12 @@
 import Component from './component.js';
 
 class PlacesList extends Component {
-	static selector = '.places-list';
-
-	// Should store row objects
-	// { name: String, element: HTMLElement }
-	rows;
-
 	constructor(element) {
 		super(element);
+
+		// Should store row objects
+		// { name: String, element: HTMLElement }
+		this.rows;
 
 		this.nameHeader = element.querySelector('.places-list__name-header');
 		this.body = element.querySelector('.places-list__body');
@@ -58,5 +56,7 @@ class PlacesList extends Component {
 		this.nameHeader.classList.add('places-list__name-header--ascending');
 	}
 }
+
+PlacesList.selector = '.places-list';
 
 export default PlacesList;
